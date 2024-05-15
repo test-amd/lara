@@ -1,0 +1,39 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "Image": {
+    "Name": "181165410516.dkr.ecr.us-east-2.amazonaws.com/laraapp_repo:latest",
+    "Update": "true"
+  },
+  "Ports": [
+    {
+      "containerPort": 9000,
+      "hostPort": 9000
+    }
+  ],
+
+  "containerDefinitions": [
+    {
+      "name": "nginx",
+      "image": "nginx:1.26.0",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 80
+        }
+      ],
+      "links": ["laravel-app"]
+    }
+  ],
+  "Ports": [
+    {
+      "ContainerPort": 9000,
+      "HostPort": 9000
+    },
+    {
+      "ContainerPort": 80,
+      "HostPort": 80
+    }
+  ]
+}
